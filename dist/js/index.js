@@ -125,6 +125,133 @@ var DashboardCharts = function(){
 			console.log(`DashboardCharts::create_age_group_chart:${err.message}`);
 		}
 	};
+
+	this.create_demographics_chart = function(){
+		try{
+			//code to populate chart goes here
+			console.log('demographics chart executed successfully!');
+			Highcharts.chart('demographics', {
+				exporting:{
+					enabled: false
+				},
+				chart: {
+					plotBackgroundColor: null,
+					plotBorderWidth: null,
+					plotShadow: false,
+					type: 'pie'
+				},
+				title: {
+					text: 'Peoples Demographics'
+				},
+				tooltip: {
+					pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+				},
+				plotOptions: {
+					pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',
+						dataLabels: {
+							enabled: true,
+							format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+							style: {
+								color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+							}
+						}
+					}
+				},
+				series: [{
+					name: 'Count',
+					colorByPoint: true,
+					data: [{
+						name: 'Female',
+						y: 56.33
+					}, {
+						name: 'Male',
+						y: 24.03,
+						sliced: true,
+						selected: true
+					}]
+				}]
+			});
+
+		}
+		catch(err){
+			console.log(`DashboardCharts::create_demographics_chart:${err.message}`);
+		}
+	};
+
+	this.create_emotions_chart = function(){
+		try{
+			//code to populate chart goes here
+			console.log('emotions chart executed successfully!');
+			Highcharts.chart('emotions', {
+				exporting:{
+					enabled: false
+				},
+				chart: {
+					plotBackgroundColor: null,
+					plotBorderWidth: null,
+					plotShadow: false,
+					type: 'pie'
+				},
+				title: {
+					text: 'Peoples Emotions'
+				},
+				tooltip: {
+					pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+				},
+				plotOptions: {
+					pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',
+						dataLabels: {
+							enabled: true,
+							format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+							style: {
+								color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+							}
+						}
+					}
+				},
+				series: [{
+					name: 'Count',
+					colorByPoint: true,
+					data: [{
+						name: 'Anger',
+						y: 50.33
+					}, {
+						name: 'Neutral',
+						y: 20.03,
+						sliced: true,
+						selected: true
+					}, {
+						name: 'Happiness',
+						y: 10.38
+					}, {
+						name: 'Sadness',
+						y: 4.77
+					}, {
+						name: 'Content',
+						y: 0.91
+					}, {
+						name: 'Surprise',
+						y: 0.2
+					},{
+						name: 'Disgust',
+						y: 4.0
+					},
+					{
+						name: 'Fear',
+						y: 6.0
+					}]
+				}]
+			});
+
+		}
+		catch(err){
+			console.log(`DashboardCharts::create_emotions_chart:${err.message}`);
+		}
+	};
 };  
 
 $(document).ready(function(){
@@ -132,5 +259,7 @@ $(document).ready(function(){
 	var dashboard_chart_instance = new DashboardCharts();
 	dashboard_chart_instance.create_people_count_chart();
 	dashboard_chart_instance.create_age_group_chart();
+	dashboard_chart_instance.create_demographics_chart();
+	dashboard_chart_instance.create_emotions_chart();
 });
 // peoplecount line chart end here
