@@ -1,55 +1,112 @@
+$(document).ready(function() {
+var options = {
+chart: {
+renderTo: 'container',
+type: 'line',
+marginRight: 130,
+marginBottom: 25
+},
+title: {
+text: 'Revenue vs. Overhead',
+x: -20 //center
+},
+subtitle: {
+text: '',
+x: -20
+},
+xAxis: {
+categories: []
+},
+yAxis: {
+title: {
+text: 'Amount'
+},
+plotLines: [{
+value: 0,
+width: 1,
+color: '#808080'
+}]
+},
+tooltip: {
+formatter: function() {
+return '<b>'+ this.series.name +'</b><br/>'+
+this.x +': '+ this.y;
+}
+},
+legend: {
+layout: 'vertical',
+align: 'right',
+verticalAlign: 'top',
+x: -10,
+y: 100,
+borderWidth: 0
+},
+series: []
+}
+ 
+$.getJSON("data.json", function(json) {
+options.xAxis.categories = json[0]['data'];
+options.series[0] = json[1];
+options.series[1] = json[2];
+chart = new Highcharts.Chart(options);
+});
+});
+
+
+
+
 // people count line chart start
 
 var DashboardCharts = function(){
-	this.create_people_count_chart = function(){
-		try{
-			//code to populate chart goes here
-			console.log('function successfully executed!');
-			Highcharts.chart('people_count', {
-				exporting:{
-					enabled: false
-				},
-
-				title: {
-					text: 'Yearly People Count'
-				},
-
-				subtitle: {
-					text: 'Graphical Representaion'
-				},
-
-				yAxis: {
-					title: {
-						text: 'Number of People'
-					}
-				},
-				legend: {
-					layout: 'vertical',
-					align: 'right',
-					verticalAlign: 'middle'
-				},
-
-				plotOptions: {
-					series: {
-						pointStart: 2010
-					}
-				},
-
-				series: [{
-					name: 'People In',
-					data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
-				}, {
-					name: 'People Out',
-					data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
-				}]
-
-			});
-		}
-		catch(err)
-		{
-			console.log(`DashboardCharts::create_people_count_chart:${err.message}`);
-		}
-	};
+//	this.create_people_count_chart = function(){
+//		try{
+//			//code to populate chart goes here
+//			console.log('function successfully executed!');
+//			Highcharts.chart('people_count', {
+//				exporting:{
+//					enabled: false
+//				},
+//
+//				title: {
+//					text: 'Yearly People Count'
+//				},
+//
+//				subtitle: {
+//					text: 'Graphical Representaion'
+//				},
+//
+//				yAxis: {
+//					title: {
+//						text: 'Number of People'
+//					}
+//				},
+//				legend: {
+//					layout: 'vertical',
+//					align: 'right',
+//					verticalAlign: 'middle'
+//				},
+//
+//				plotOptions: {
+//					series: {
+//						pointStart: 2010
+//					}
+//				},
+//
+//				series: [{
+//					name: 'People In',
+//					data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+//				}, {
+//					name: 'People Out',
+//					data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
+//				}]
+//
+//			});
+//		}
+//		catch(err)
+//		{
+//			console.log(`DashboardCharts::create_people_count_chart:${err.message}`);
+//		}
+//	};
 
 	this.create_age_group_chart = function(){
 		try{
@@ -257,7 +314,7 @@ var DashboardCharts = function(){
 $(document).ready(function(){
 	//code to populate chart goes here
 	var dashboard_chart_instance = new DashboardCharts();
-	dashboard_chart_instance.create_people_count_chart();
+	//dashboard_chart_instance.create_people_count_chart();
 	dashboard_chart_instance.create_age_group_chart();
 	dashboard_chart_instance.create_demographics_chart();
 	dashboard_chart_instance.create_emotions_chart();
