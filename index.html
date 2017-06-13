@@ -119,13 +119,13 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="#">
+          <a href="my_profile.html">
             <i class="fa fa-user"></i>
             <span>My Profile</span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="store_details.html">
             <i class="fa fa-shopping-cart"></i> <span>Store Details</span>
           </a>
         </li>
@@ -214,6 +214,48 @@
         <!-- ./col -->
       </div>
       <!-- /.row -->
+
+      <!--buttons and filters start here-->
+
+      <section><div class="col-lg-12">
+        <div class="margin">
+          <div class="btn-group">
+                  <button type="button" class="btn btn-default">Store 1</button>
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Store 2</a></li>
+                    <li><a href="#">Store 3</a></li>
+                    <li><a href="#">Store 4</a></li>
+                    <li><a href="#">Store 5</a></li>
+                  </ul>
+                </div>
+
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default">All Cameras</button>
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Camera 1</a></li>
+                    <li><a href="#">Camera 2</a></li>
+                    <li><a href="#">Camera 3</a></li>
+                    <li><a href="#">Camera 4</a></li>
+                  </ul>
+                </div>
+                <button type="button" class="btn btn-default" style="float: right;">Custom</button>
+                <button type="button" class="btn btn-default" style="float: right;">Yearly</button>
+                <button type="button" class="btn btn-default" style="float: right;">Monthly</button>
+                <button type="button" class="btn btn-default" style="float: right;">Weekly</button>
+                <button type="button" class="btn btn-default active" style="float: right;">Daily</button>
+                                </div>
+      </div></section>
+
+      <!--buttons and filters end here-->
+
       <!-- Main row -->
       <div class="row">
         <!-- Left col -->
@@ -222,10 +264,7 @@
           <div class="nav-tabs-custom">
             <!-- Tabs within a box -->
             <ul class="nav nav-tabs pull-right">
-              <li class="active"><a href="#revenue-chart" data-toggle="tab"> Custom</a></li>
-              <li><a href="#revenue-chart" data-toggle="tab" id="year_button">Yearly</a></li>
-              <li><a href="#revenue-chart" data-toggle="tab">Monthly</a></li>
-              <li><a href="#revenue-chart" data-toggle="tab">Weekly</a></li>
+              
               <li class="pull-left header"><i class="fa fa-line-chart"></i> People Count</li>
             </ul>
             <div class="tab-content no-padding">
@@ -252,7 +291,6 @@
               <div class="box-tools pull-right">
                 <button type="button" class="btn bg-teal btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
-                <button type="button" class="btn bg-teal btn-sm" data-widget="remove"><i class="fa fa-times"></i>
                 </button>
               </div>
             </div>
@@ -282,7 +320,6 @@
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
             </div>
             <div class="box-body chart-responsive">
@@ -305,7 +342,6 @@
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
             </div>
             <div class="box-body chart-responsive">
