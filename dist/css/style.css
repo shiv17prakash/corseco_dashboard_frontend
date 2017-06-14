@@ -2533,6 +2533,7 @@ a:focus {
 }
 .nav-tabs-custom > .nav-tabs.pull-right {
   float: none !important;
+  height: 48px;
 }
 .nav-tabs-custom > .nav-tabs.pull-right > li {
   float: right;
